@@ -11,7 +11,7 @@
 			<td>
 				<input type="text" 
 					[(ngModel)]="user.name"
-					(ngModelChange)="updateUserName(user.id, user.name)">
+					(blur)="updateUserName(user.id, user.name)">
 			</td>
 			<td>
 				<ng-container *ngFor="let role of user.roleList">
