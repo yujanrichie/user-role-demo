@@ -1,0 +1,44 @@
+section#rc-main {
+	width: 95%;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 992px) {
+	section#rc-main {
+		width: 66.6%;
+	}
+}
+
+section#rc-main > nav {
+	position: relative;
+	padding: 1rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+
+section#rc-main > nav > img {
+	width: 206px;
+	height: auto;
+	outline: none;
+}
+
+section#rc-main > nav > .nav-item {
+	font-size: 1.25rem;
+	padding: 0 1rem;
+	color: gray;
+	cursor: pointer;
+	font-weight: 300;
+	outline: none;
+}
+
+section#rc-main > nav > .nav-item.active {
+	color: var(--blue);
+	font-weight: 300;
+}
+
+
+section#rc-main > nav > .nav-item:first-of-type {
+	margin-left: auto;
+}

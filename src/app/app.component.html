@@ -1,0 +1,9 @@
+<section id="rc-main">
+	<nav>
+		<img src="../assets/logo.svg" alt="RotaCloud" [routerLink]="['/']">
+		<div class="nav-item" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Instructions</div>
+		<div class="nav-item" [routerLink]="['/users']" routerLinkActive="active">Users</div>
+		<div class="nav-item" [routerLink]="['/roles']" routerLinkActive="active">Roles</div>
+	</nav>
+	<router-outlet></router-outlet>
+</section>
