@@ -5,7 +5,24 @@
 		<th>Name</th>
 		<th>Users</th>
 	</thead>
-	<tr>
+	
+	<ng-container *ngFor="let role of roleUserList">
+		<tr *ngIf="role != null">
+			<td>{{role?.id}}</td>
+			<td>
+				<input type="text" 
+					[(ngModel)]="role.name" 
+					[style.color]="role.colour"
+					(blur)="updateRoleName(role.id, role.name)">
+			</td>
+			<td>
+				<ng-container *ngFor="let user of role?.userList">
+					<div *ngIf="user != null" class="tag">{{user.name}}</div>
+				</ng-container>
+			</td>
+		</tr>
+	</ng-container>
+	<!-- <tr>
 		<td>5</td>
 		<td><input type="text" value="Bar" [style.color]="'#e88abb'"></td>
 		<td>
@@ -41,5 +58,5 @@
 		<td>
 			<div class="tag">David Charlwood</div>
 		</td>
-	</tr>
+	</tr> -->
 </table>
