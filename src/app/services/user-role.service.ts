@@ -51,12 +51,17 @@ export class UserRoleService {
         this.roleList = result[0];
         this.userList = result[1];
       }
+
       //map the values and publish updated values
       this.updateUsersAndRoles();
     });
   }
 
   private updateUsersAndRoles() {
+    //sort both list by name
+    this.roleList && this.roleList.sort((a, b) => a.name.localeCompare(b.name));
+    this.userList && this.userList.sort((a, b) => a.name.localeCompare(b.name));
+
     //remap
     this.userRoleList = this.mapRolesToUsers(this.roleList, this.userList);
     this.roleUserList = this.mapUsersToRoles(this.userList, this.roleList);
@@ -87,6 +92,9 @@ export class UserRoleService {
               let currentRoleInfo: RoleInfo = roles.find(role => role.id === userRoleID);
               if (currentRoleInfo != null) newRoleList.push(currentRoleInfo);
             });
+
+            //sort the roles list per user
+            newRoleList && newRoleList.sort((a, b) => a.name.localeCompare(b.name));
 
             //add roleList property to our UserRoleInfo object
             newUserRoleInfo.roleList = newRoleList;
